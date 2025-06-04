@@ -1,23 +1,23 @@
 - hosts: all
   become: True
   tasks:
-    - name: Enable nginx repo via amazon-linux-extras
+    - name: nginx
       command: amazon-linux-extras enable nginx1
       register: result
 
-    - name: Clean metadata and install nginx
+    - name: nginx
       yum:
         name: nginx
         state: present
       when: result is success
 
-    - name: Start nginx server
+    - name: Start nginx 
       service:
         name: nginx
         state: started
         enabled: True
 
-    - name: Deploy static website
+    - name: website
       copy:
         src: index.html
         dest: /var/www/html/
