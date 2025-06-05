@@ -4,7 +4,7 @@
   tasks:
 
     - name: Installation des paquets de base
-      package:
+      yum:
         name: "{{ item }}"
         state: present
       loop:
@@ -29,6 +29,11 @@
         name: nginx
         state: started
         enabled: true
+        
+    - name: website
+      copy:
+        src: index.html
+        dest: /var/www/html/   
 
 - name: Déployer app "htop" sur App
   hosts: app
