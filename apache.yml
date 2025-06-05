@@ -3,13 +3,13 @@
   tasks:
     - name: nginx
       command: amazon-linux-extras enable nginx1
-      register: result
+      
 
     - name: nginx
       yum:
         name: nginx
         state: present
-      when: result is success
+      
 
     - name: Start nginx 
       service:
