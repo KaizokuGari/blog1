@@ -1,4 +1,4 @@
-- name: Déployer infrastructure 3-tier
+- name: Deployer infrastructure 3-tier
   hosts: all
   become: yes
   tasks:
